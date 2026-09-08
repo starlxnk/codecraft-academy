@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CodeCraft Academy — Cutting-Edge IT Education</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Supabase SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="#" class="logo">Code<span>Craft</span></a>
+      <nav class="nav-links">
+        <a href="#courses" data-i18n="navCourses">Courses</a>
+        <a href="#calculator" data-i18n="navCalc">Installment</a>
+        <a href="#program" data-i18n="navProgram">Curriculum</a>
+        <a href="#mentors" data-i18n="navMentors">Mentors</a>
+        <a href="#faq" data-i18n="navFaq">FAQ</a>
+      </nav>
+      <div class="nav-actions">
+        <button id="langToggleBtn" class="lang-btn">EN | RU</button>
+        <button class="btn-primary-glow" id="openCartBtn" data-i18n="enrollBtn">Enroll Now 🎓</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-bg-glow"></div>
+    <div class="container hero-grid">
+      <div class="hero-text">
+        <div class="pill-badge" data-i18n="heroBadge">⚡ 2026 Batch Enrollment Open</div>
+        <h1 data-i18n="heroTitle">Master an <span>IT Profession</span> & Launch Your Global Career</h1>
+        <p data-i18n="heroDesc">Hands-on online courses in Fullstack Development, Python, AI Engineering, and UI/UX Design with 1-on-1 mentorship and guaranteed internship access.</p>
+        <div class="hero-btns">
+          <a href="#courses" class="btn-accent" data-i18n="heroCatalog">Course Catalog</a>
+          <a href="#calculator" class="btn-outline" data-i18n="heroCalcBtn">Calculate Plan</a>
+        </div>
+        <div class="hero-stats-row">
+          <div><strong>12,500+</strong> <span data-i18n="statGrads">Graduates</span></div>
+          <div><strong>94%</strong> <span data-i18n="statHired">Employed</span></div>
+          <div><strong>4.9/5</strong> <span data-i18n="statScore">Average Rating</span></div>
+        </div>
+      </div>
+      <div class="hero-card-preview">
+        <div class="glass-card main-preview">
+          <div class="preview-header">
+            <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+            <small>Live Terminal Session</small>
+          </div>
+          <pre class="code-block"><code><span class="kwd">const</span> developer = {
+  academy: <span class="str">"CodeCraft"</span>,
+  stack: <span class="str">"React + Node + AI"</span>,
+  status: <span class="str">"Job Ready 🚀"</span>
+};</code></pre>
+          <div class="preview-badge" data-i18n="previewBadge">First Module — Free</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Courses Catalog -->
+  <section class="courses" id="courses">
+    <div class="container">
+      <div class="section-head">
+        <h2 data-i18n="coursesHead">Flagship Programs</h2>
+        <p data-i18n="coursesSub">Choose your track and go from zero to landing a job offer</p>
+      </div>
+
+      <div class="filter-tabs">
+        <button class="tab-btn active" data-filter="all" data-i18n="tabAll">All Tracks</button>
+        <button class="tab-btn" data-filter="dev" data-i18n="tabDev">Software Engineering</button>
+        <button class="tab-btn" data-filter="design" data-i18n="tabDesign">Design</button>
+        <button class="tab-btn" data-filter="ai" data-i18n="tabAi">AI & Data</button>
+      </div>
+
+      <div class="courses-grid" id="coursesGrid"></div>
+    </div>
+  </section>
+
+  <!-- Calculator -->
+  <section class="calculator-section" id="calculator">
+    <div class="container">
+      <div class="glass-card calc-card">
+        <div class="calc-info">
+          <h2 data-i18n="calcTitle">Installment Calculator</h2>
+          <p data-i18n="calcSub">Calculate your custom payment schedule with zero hidden fees</p>
+          <div class="calc-controls">
+            <label><span data-i18n="labelCourse">Training Course:</span>
+              <select id="calcCourseSelect">
+                <option value="1200">Fullstack Web Developer (12 mos)</option>
+                <option value="950">Python Developer & Django (9 mos)</option>
+                <option value="800">UI/UX & Product Design (6 mos)</option>
+                <option value="1100">AI & Prompt Engineer (8 mos)</option>
+              </select>
+            </label>
+            <label><span data-i18n="labelPeriod">Installment Period:</span> <span id="monthsVal">12 months</span>
+              <input type="range" id="monthsRange" min="3" max="24" value="12">
+            </label>
+          </div>
+        </div>
+        <div class="calc-result-box">
+          <span class="calc-label" data-i18n="monthlyPay">Monthly Payment:</span>
+          <div class="price-display" id="monthlyPrice">100 $ / mo</div>
+          <p class="calc-note" data-i18n="firstPayNote">First payment due in 30 days</p>
+          <button class="btn-accent" id="calcEnrollBtn" data-i18n="applyInstallment">Apply for Installment</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <a href="#" class="logo">Code<span>Craft</span></a>
+        <p>© 2026 CodeCraft Academy. All rights reserved.</p>
+      </div>
+      <div class="footer-links">
+        <button id="openPrivacyBtn">Privacy Policy</button>
+        <button id="openTermsBtn">Terms of Service</button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal -->
+  <div class="modal" id="enrollModal">
+    <div class="modal-card">
+      <button class="modal-close">×</button>
+      <h2 data-i18n="modalHead">Enrollment & Checkout</h2>
+      <p class="modal-sub" data-i18n="modalSub">Select your course and participation plan</p>
+
+      <div class="enroll-grid">
+        <div class="selected-course-box">
+          <h3 id="modalCourseTitle">Fullstack Web Developer</h3>
+          <div class="modal-price-tag" id="modalCoursePrice">1200 $</div>
+        </div>
+
+        <form id="enrollForm" class="enroll-form">
+          <input type="text" id="studentName" placeholder="Full Name" required>
+          <input type="email" id="studentEmail" placeholder="Email Address" required>
+          <input type="text" id="cardNumber" placeholder="Card Number (0000 0000 0000 0000)" maxlength="19" required>
+          <div class="form-row">
+            <input type="text" id="cardExp" placeholder="MM/YY" maxlength="5" required>
+            <input type="password" id="cardCvc" placeholder="CVC" maxlength="3" required>
+          </div>
+          <button type="submit" class="btn-accent block-btn" id="paySubmitBtn" data-i18n="payBtnText">Pay & Start Learning</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div id="toastContainer" class="toast-container"></div>
+  <script src="script.js"></script>
+</body>
+</html>
